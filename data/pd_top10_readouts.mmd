@@ -1,0 +1,45 @@
+%% Disease-relevant biomarker readouts (PK excluded)
+flowchart LR
+  n0["2. Adalimumab"]
+  n1("inflammation")
+  n2["1. Etanercept"]
+  n3["3. Infliximab"]
+  n4("other_biomarker")
+  n5["5. Certolizumab"]
+  n6["6. Golimumab"]
+  n7["10. Bupropion"]
+  n8("genomic")
+  n9("fluid_molecular")
+  n10("imaging")
+  n11["9. Phenelzine"]
+  n0 -->|87 trials| n1
+  n2 -->|64 trials| n1
+  n3 -->|43 trials| n1
+  n0 -->|20 trials| n4
+  n5 -->|18 trials| n1
+  n3 -->|15 trials| n4
+  n6 -->|14 trials| n1
+  n2 -->|10 trials| n4
+  n7 -->|5 trials| n1
+  n7 -->|5 trials| n4
+  n2 -->|5 trials| n8
+  n6 -->|4 trials| n4
+  n3 -->|3 trials| n8
+  n5 -->|2 trials| n4
+  n2 -->|2 trials| n9
+  n0 -->|2 trials| n8
+  n6 -->|1 trials| n9
+  n3 -->|1 trials| n9
+  n0 -->|1 trials| n10
+  n2 -->|1 trials| n10
+  n11 -->|1 trials| n8
+  n0 -->|1 trials| n9
+  classDef drug fill:#ddf4ff,stroke:#0969da,color:#0a3069;
+  classDef anchor fill:#eeeeee,stroke:#6e7781,color:#24292f,stroke-dasharray:4 3;
+  classDef target fill:#fff8c5,stroke:#9a6700,color:#4d2d00;
+  classDef toxin fill:#ffebe9,stroke:#cf222e,color:#5a0f14;
+  classDef pathway fill:#dafbe1,stroke:#1a7f37,color:#0a3622;
+  classDef disease fill:#fbefff,stroke:#8250df,color:#3b1a5c;
+  classDef readout fill:#f6f8fa,stroke:#6e7781,color:#24292f;
+  class n0,n2,n3,n5,n6,n7,n11 drug;
+  class n1,n4,n8,n9,n10 readout;

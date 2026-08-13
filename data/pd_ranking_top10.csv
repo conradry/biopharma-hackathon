@@ -1,0 +1,11 @@
+rank,drug,targets,toxins,modality,verdict,approval_year,priority_score,direction_component,pathway_component,toxin_component,cns_component,clinical_component,biomarker_component,n_protective,n_risk,n_ambiguous,best_pathway_qvalue,n_enriched_pathways,toxin_support,max_toxins_per_target,n_trials,n_late_phase_trials,n_pd_trials,n_neuro_trials,n_disease_readout_trials
+1,Etanercept,TNF,trichloroethylene; mptp; paraquat; rotenone,biologic,candidate,1998,0.767,1.0,1.0,0.3504,0.7,0.8954,0.2203,1,0,0,0.006420344193912999,1,0.537422,4,354,181,0,5,78
+2,Adalimumab,TNF,trichloroethylene; mptp; paraquat; rotenone,biologic,candidate,2002,0.6779,1.0,1.0,0.3504,0.15,0.9382,0.2217,1,0,0,0.006420344193912999,1,0.537422,4,469,272,0,0,104
+3,Infliximab,TNF,trichloroethylene; mptp; paraquat; rotenone,biologic,candidate,1998,0.6698,1.0,1.0,0.3504,0.15,0.8975,0.1643,1,0,0,0.006420344193912999,1,0.537422,4,359,169,0,0,59
+4,Tranylcypromine,MAOA; MAOB,mptp,small_molecule,candidate,1961,0.6622,1.0,1.0,0.1218,0.7,0.4129,0.0,2,0,0,0.006420344193912999,3,0.186904,1,14,6,0,1,0
+5,Certolizumab,TNF,trichloroethylene; mptp; paraquat; rotenone,biologic,candidate,2008,0.6529,1.0,1.0,0.3504,0.15,0.7037,0.2,1,0,0,0.006420344193912999,1,0.537422,4,100,61,0,0,20
+6,Golimumab,TNF,trichloroethylene; mptp; paraquat; rotenone,biologic,candidate,2009,0.6523,1.0,1.0,0.3504,0.15,0.7082,0.1845,1,0,0,0.006420344193912999,1,0.537422,4,103,53,0,0,19
+7,Moclobemide,MAOA,mptp,small_molecule,candidate,1990,0.6345,1.0,1.0,0.0609,0.7,0.2454,0.0,1,0,0,0.006420344193912999,2,0.093452,1,4,2,0,1,0
+8,Isocarboxazid,MAOA; MAOB,mptp,small_molecule,candidate,1959,0.6315,1.0,1.0,0.1218,0.7,0.1057,0.0,2,0,0,0.006420344193912999,3,0.186904,1,1,0,0,1,0
+9,Phenelzine,MAOB; MAOA,mptp,small_molecule,candidate,1961,0.6292,1.0,1.0,0.1218,0.5,0.335,0.125,2,0,0,0.006420344193912999,3,0.186904,1,8,1,0,0,1
+10,Bupropion,SLC6A3,mptp,small_molecule,candidate,1985,0.6254,1.0,0.5236,0.1168,0.7,0.8915,0.029,1,0,0,0.07114187315128005,0,0.179133,1,345,156,0,8,10

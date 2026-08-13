@@ -102,6 +102,14 @@ WITH per_drug AS (
     FROM drug_target_evidence
     GROUP BY 1
 ),
+-- Trials carrying a readout that could show the drug affecting disease biology
+-- (imaging, fluid molecular, inflammation, genomic) as opposed to plasma levels.
+-- PK is 76% of the annotated measures and is close to universal in phase 1, so
+-- counting it would mostly reward having been through early development.
+disease_readouts AS (
+    SELECT drug, count(DISTINCT nct_id) AS n_disease_readout_trials
+    FROM biomarker_measures WHERE is_disease_readout GROUP BY 1
+),
 trial_rollup AS (
     SELECT drug,
            count(DISTINCT nct_id)                                            AS n_trials,
@@ -124,11 +132,13 @@ raw AS (
                 ELSE 'small_molecule' END      AS modality,
            coalesce(t.n_trials, 0)            AS n_trials,
            coalesce(t.n_biomarker_trials, 0)  AS n_biomarker_trials,
+           coalesce(d.n_disease_readout_trials, 0) AS n_disease_readout_trials,
            coalesce(t.n_pd_trials, 0)         AS n_pd_trials,
            coalesce(t.n_neuro_trials, 0)      AS n_neuro_trials,
            coalesce(t.n_late_phase_trials, 0) AS n_late_phase_trials
     FROM per_drug p
-    LEFT JOIN trial_rollup t ON t.drug = p.drug
+    LEFT JOIN trial_rollup    t ON t.drug = p.drug
+    LEFT JOIN disease_readouts d ON d.drug = p.drug
 ),
 -- Components are normalised across the candidate set, so they are comparable
 -- to each other but only meaningful relative to this cohort of 71 drugs.
@@ -145,7 +155,7 @@ scored AS (
                                                                     AS direction_component,
            ln(1 + r.n_trials) / nullif(max(ln(1 + r.n_trials)) OVER (), 0)
                                                                     AS clinical_component,
-           coalesce(r.n_biomarker_trials::DOUBLE / nullif(r.n_trials, 0), 0)
+           coalesce(r.n_disease_readout_trials::DOUBLE / nullif(r.n_trials, 0), 0)
                                                                     AS biomarker_component,
            -- Can the drug plausibly reach the brain? Without this, trial volume
            -- alone floats systemic blockbusters to the top: the anti-TNF
@@ -178,7 +188,7 @@ SELECT
     s.n_protective, s.n_risk, s.n_ambiguous,
     s.best_pathway_qvalue, s.n_enriched_pathways, s.hits_pd_seed_protein,
     s.toxin_support, s.max_toxins_per_target,
-    s.n_trials, s.n_late_phase_trials, s.n_biomarker_trials,
+    s.n_trials, s.n_late_phase_trials, s.n_biomarker_trials, s.n_disease_readout_trials,
     s.n_pd_trials, s.n_neuro_trials,
     round(s.pathway_component, 4)::DOUBLE   AS pathway_component,
     round(s.toxin_component, 4)::DOUBLE     AS toxin_component,
@@ -248,3 +258,26 @@ SELECT
     (e.qvalue < 0.05 AND tp.pathway_index IS NOT NULL) AS is_convergent
 FROM pathway_enrichment e
 LEFT JOIN toxin_pathway tp USING (pathway_index);
+
+
+-- What could you actually measure in a trial of this drug? Categories matter:
+-- a PK assay tells you the drug is present, an imaging or fluid-molecular
+-- readout might tell you it is doing something. Use this when a user asks how
+-- a candidate would be tested or whether target engagement is measurable.
+CREATE OR REPLACE VIEW drug_biomarker_readouts AS
+SELECT
+    drug,
+    gene,
+    count(*)                                                       AS n_measures,
+    count(DISTINCT nct_id)                                         AS n_trials,
+    count(*) FILTER (category = 'PK')                              AS n_pk,
+    count(*) FILTER (category = 'imaging')                         AS n_imaging,
+    count(*) FILTER (category = 'fluid_molecular')                 AS n_fluid_molecular,
+    count(*) FILTER (category = 'inflammation')                    AS n_inflammation,
+    count(*) FILTER (category = 'genomic')                         AS n_genomic,
+    count(*) FILTER (category = 'other_biomarker')                 AS n_other,
+    count(DISTINCT nct_id) FILTER (is_disease_readout)             AS n_disease_readout_trials,
+    count(DISTINCT nct_id) FILTER (is_pd_neuro AND is_disease_readout)
+                                                                   AS n_pd_neuro_readout_trials
+FROM biomarker_measures
+GROUP BY 1, 2;

@@ -1,0 +1,131 @@
+%% Convergent PD pathways: toxin evidence + enrichment
+flowchart LR
+  n0[["Parkinson disease"]]
+  n1["Detoxification of Reactive Oxygen Species"]
+  n2(["CAT"])
+  n3(["GPX1"])
+  n4(["GPX2"])
+  n5(["GPX3"])
+  n6(["SOD1"])
+  n7(["SOD2"])
+  n8(["SOD3"])
+  n9{{"chlorpyrifos"}}
+  n10{{"lead"}}
+  n11{{"manganese"}}
+  n12{{"mercury"}}
+  n13{{"paraquat"}}
+  n14{{"rotenone"}}
+  n15["Transcriptional activation of mitochondrial biogenesis"]
+  n16(["GABPA"])
+  n17(["PPARGC1B"])
+  n18{{"tetrachloroethylene"}}
+  n19["FOXO-mediated transcription of oxidative stress, metabolic and neuronal genes"]
+  n20["Gene and protein expression by JAK-STAT signaling after Interleukin-12 stimulation"]
+  n21["Interleukin-4 and Interleukin-13 signaling"]
+  n22(["AKT1"])
+  n23(["BCL2"])
+  n24(["IL6"])
+  n25(["MAOA"])
+  n26(["TNF"])
+  n27{{"mptp"}}
+  n28{{"trichloroethylene"}}
+  n29["Catecholamine biosynthesis"]
+  n30(["TH"])
+  n31["Biosynthesis of maresin-like SPMs"]
+  n32(["CYP2E1"])
+  n33["CYP2E1 reactions"]
+  n34["Synthesis of 5-eicosatetraenoic acids"]
+  n35(["GPX4"])
+  n36["Glutathione conjugation"]
+  n37(["HPGDS"])
+  n38{{"dieldrin"}}
+  n39["Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB"]
+  n40(["MAOB"])
+  n1 -->|q=0.015| n0
+  n2 -->|in pathway| n1
+  n3 -->|in pathway| n1
+  n4 -->|in pathway| n1
+  n5 -->|in pathway| n1
+  n6 -->|in pathway| n1
+  n7 -->|in pathway| n1
+  n8 -->|in pathway| n1
+  n9 -->|implicates| n1
+  n10 -->|implicates| n1
+  n11 -->|implicates| n1
+  n12 -->|implicates| n1
+  n13 -->|implicates| n1
+  n14 -->|implicates| n1
+  n15 -->|q=0.024| n0
+  n16 -->|in pathway| n15
+  n17 -->|in pathway| n15
+  n7 -->|in pathway| n15
+  n9 -->|implicates| n15
+  n10 -->|implicates| n15
+  n11 -->|implicates| n15
+  n12 -->|implicates| n15
+  n13 -->|implicates| n15
+  n14 -->|implicates| n15
+  n18 -->|implicates| n15
+  n19 -->|q=0.033| n0
+  n2 -->|in pathway| n19
+  n7 -->|in pathway| n19
+  n9 -->|implicates| n19
+  n10 -->|implicates| n19
+  n11 -->|implicates| n19
+  n12 -->|implicates| n19
+  n13 -->|implicates| n19
+  n14 -->|implicates| n19
+  n20 -->|q=0.015| n0
+  n6 -->|in pathway| n20
+  n7 -->|in pathway| n20
+  n9 -->|implicates| n20
+  n10 -->|implicates| n20
+  n11 -->|implicates| n20
+  n12 -->|implicates| n20
+  n13 -->|implicates| n20
+  n14 -->|implicates| n20
+  n21 -->|q=0.0064| n0
+  n22 -->|in pathway| n21
+  n23 -->|in pathway| n21
+  n24 -->|in pathway| n21
+  n25 -->|in pathway| n21
+  n26 -->|in pathway| n21
+  n27 -->|implicates| n21
+  n13 -->|implicates| n21
+  n14 -->|implicates| n21
+  n28 -->|implicates| n21
+  n29 -->|q=0.016| n0
+  n30 -->|in pathway| n29
+  n27 -->|implicates| n29
+  n14 -->|implicates| n29
+  n31 -->|q=0.022| n0
+  n32 -->|in pathway| n31
+  n28 -->|implicates| n31
+  n33 -->|q=0.048| n0
+  n32 -->|in pathway| n33
+  n28 -->|implicates| n33
+  n34 -->|q=0.035| n0
+  n3 -->|in pathway| n34
+  n4 -->|in pathway| n34
+  n35 -->|in pathway| n34
+  n12 -->|implicates| n34
+  n13 -->|implicates| n34
+  n36 -->|q=0.022| n0
+  n37 -->|in pathway| n36
+  n9 -->|implicates| n36
+  n38 -->|implicates| n36
+  n39 -->|q=0.0064| n0
+  n25 -->|in pathway| n39
+  n40 -->|in pathway| n39
+  n27 -->|implicates| n39
+  classDef drug fill:#ddf4ff,stroke:#0969da,color:#0a3069;
+  classDef anchor fill:#eeeeee,stroke:#6e7781,color:#24292f,stroke-dasharray:4 3;
+  classDef target fill:#fff8c5,stroke:#9a6700,color:#4d2d00;
+  classDef toxin fill:#ffebe9,stroke:#cf222e,color:#5a0f14;
+  classDef pathway fill:#dafbe1,stroke:#1a7f37,color:#0a3622;
+  classDef disease fill:#fbefff,stroke:#8250df,color:#3b1a5c;
+  classDef readout fill:#f6f8fa,stroke:#6e7781,color:#24292f;
+  class n2,n3,n4,n5,n6,n7,n8,n16,n17,n22,n23,n24,n25,n26,n30,n32,n35,n37,n40 target;
+  class n9,n10,n11,n12,n13,n14,n18,n27,n28,n38 toxin;
+  class n1,n15,n19,n20,n21,n29,n31,n33,n34,n36,n39 pathway;
+  class n0 disease;

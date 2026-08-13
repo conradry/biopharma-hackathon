@@ -266,6 +266,87 @@ def kb(tmp_path_factory) -> Path:
         trials,
     )
 
+    # Biomarker readouts. Rasagiline gets an imaging measure (a disease readout),
+    # Capivasertib only PK -- so the biomarker component can tell them apart.
+    _write_csv(
+        data / "PD_toxin_target_Biomarker_measures.csv",
+        [
+            "Target",
+            "Toxins",
+            "Drug",
+            "Approval_yr",
+            "Action",
+            "NCT_ID",
+            "URL",
+            "Phase",
+            "Status",
+            "Outcome_type",
+            "Biomarker_category",
+            "Measure",
+            "Time_frame",
+            "Conditions",
+            "PD_neuro",
+        ],
+        [
+            [
+                "MAOB",
+                "mptp",
+                "Rasagiline",
+                2006,
+                "INHIBITOR",
+                "NCT00000001",
+                "https://example.org",
+                "Phase 3",
+                "Completed",
+                "primary",
+                "imaging",
+                "DaTscan striatal binding ratio",
+                "12 months",
+                "Parkinson's Disease",
+                "Yes",
+            ],
+            [
+                "AKT1",
+                "rotenone",
+                "Capivasertib",
+                2023,
+                "INHIBITOR",
+                "NCT00000002",
+                "https://example.org",
+                "Phase 1",
+                "Completed",
+                "secondary",
+                "PK",
+                "AUC of capivasertib",
+                "24 hours",
+                "Cancer",
+                "No",
+            ],
+        ],
+    )
+    _write_csv(
+        data / "PD_toxin_target_Biomarker_by_target.csv",
+        [
+            "Target",
+            "Toxins",
+            "N_drugs",
+            "N_trials",
+            "N_biomarker_measures",
+            "PK",
+            "imaging",
+            "fluid_molecular",
+            "inflammation",
+            "genomic",
+            "other_biomarker",
+            "N_PDneuro_trials",
+            "Distinct_drugs",
+        ],
+        [
+            ["MAOB", "mptp", 1, 2, 1, 0, 1, 0, 0, 0, 0, 1, "Rasagiline"],
+            ["AKT1", "rotenone", 1, 2, 1, 1, 0, 0, 0, 0, 0, 0, "Capivasertib"],
+        ],
+    )
+
     db = data / "kb.duckdb"
     build_database(db, data_dir=data, screen_source=None)
     return db
@@ -380,3 +461,22 @@ def test_graph_lookup_is_case_insensitive_and_errors_cleanly(conn) -> None:
 )
 def test_classify(gene: str, action: str | None, expected: str) -> None:
     assert classify(gene, action) == expected
+
+
+def test_biomarker_component_counts_disease_readouts_not_pk(conn) -> None:
+    """PK is 76% of the real corpus and says only that the drug reached plasma.
+
+    Rasagiline has an imaging readout, Capivasertib only a PK measure, so the
+    component must separate them even though both have a 'biomarker' trial.
+    """
+    assert _candidate(conn, "Rasagiline")["n_disease_readout_trials"] == 1
+    assert _candidate(conn, "Capivasertib")["n_disease_readout_trials"] == 0
+    assert _candidate(conn, "Capivasertib")["biomarker_component"] == pytest.approx(0.0)
+
+
+def test_readout_view_breaks_out_categories(conn) -> None:
+    row = conn.execute(
+        "SELECT n_pk, n_imaging, n_disease_readout_trials, n_pd_neuro_readout_trials "
+        "FROM drug_biomarker_readouts WHERE drug = 'Rasagiline'"
+    ).fetchone()
+    assert row == (0, 1, 1, 1)

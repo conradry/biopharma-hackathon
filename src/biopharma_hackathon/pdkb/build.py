@@ -94,6 +94,8 @@ def build_database(
         "target_drug": data / "PD_toxin_target_Target_Drug_map.csv",
         "drug_summary": data / "PD_toxin_target_Drug_Summary.csv",
         "trials": data / "PD_toxin_target_Trials.csv",
+        "biomarker_measures": data / "PD_toxin_target_Biomarker_measures.csv",
+        "biomarker_by_target": data / "PD_toxin_target_Biomarker_by_target.csv",
     }
     _require(sources)
 
@@ -173,6 +175,50 @@ def build_database(
                coalesce({_ilike_any("src.Conditions", PD_PATTERNS)}, FALSE)    AS is_parkinsons,
                coalesce({_ilike_any("src.Conditions", NEURO_PATTERNS)}, FALSE) AS is_neuro
         FROM read_csv('{sources["trials"]}',
+                      header = true, sample_size = -1, null_padding = true) src;
+    """)
+
+    # Per-trial biomarker readouts, categorised. This matters more than the
+    # boolean on `trials`: 76% of the measures are PK (drug plasma levels),
+    # which nearly every phase 1 collects and which says nothing about whether
+    # a drug moves the disease. is_disease_readout separates the rest.
+    conn.execute(f"""
+        CREATE TABLE biomarker_measures AS
+        SELECT src.Target                          AS gene,
+               src.Toxins                          AS toxins,
+               src.Drug                            AS drug,
+               src.Action                          AS action_type,
+               src.NCT_ID                          AS nct_id,
+               src.URL                             AS url,
+               src.Phase                           AS phase,
+               src.Status                          AS status,
+               src.Outcome_type                    AS outcome_type,
+               src.Biomarker_category              AS category,
+               src.Measure                         AS measure,
+               src.Time_frame                      AS time_frame,
+               src.Conditions                      AS conditions,
+               src.PD_neuro = 'Yes'                AS is_pd_neuro,
+               src.Biomarker_category <> 'PK'      AS is_disease_readout
+        FROM read_csv('{sources["biomarker_measures"]}',
+                      header = true, sample_size = -1, null_padding = true) src;
+    """)
+
+    conn.execute(f"""
+        CREATE TABLE biomarker_by_target AS
+        SELECT src.Target                          AS gene,
+               src.Toxins                          AS toxins,
+               src.N_drugs                         AS n_drugs,
+               src.N_trials                        AS n_trials,
+               src.N_biomarker_measures            AS n_biomarker_measures,
+               src.PK                              AS n_pk,
+               src.imaging                         AS n_imaging,
+               src.fluid_molecular                 AS n_fluid_molecular,
+               src.inflammation                    AS n_inflammation,
+               src.genomic                         AS n_genomic,
+               src.other_biomarker                 AS n_other,
+               src.N_PDneuro_trials                AS n_pdneuro_trials,
+               src.Distinct_drugs                  AS drugs
+        FROM read_csv('{sources["biomarker_by_target"]}',
                       header = true, sample_size = -1, null_padding = true) src;
     """)
 

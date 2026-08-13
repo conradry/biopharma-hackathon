@@ -1,0 +1,25 @@
+best_pathway_qvalue,fold_enrichment,id,kind,label,modality,n_disease_readout_trials,n_toxins,n_trials,pathway_size,priority_score,qvalue,rank,toxin_support,verdict
+,,disease:Parkinson disease,disease,Parkinson disease,,,,,,,,,,
+,,drug:Etanercept,drug,Etanercept,biologic,78,,354,,0.767,,1,,candidate
+0.006420344193912999,,target:TNF,target,TNF,,,4,,,,,,0.5374,
+,,toxin:rotenone,toxin,rotenone,,,,,,,,,,
+,,toxin:trichloroethylene,toxin,trichloroethylene,,,,,,,,,,
+,,toxin:paraquat,toxin,paraquat,,,,,,,,,,
+,,toxin:mptp,toxin,mptp,,,,,,,,,,
+,,drug:Rasagiline,anchor_drug,Rasagiline,small_molecule,3,,51,,0.7253,,0,,established_pd_therapy
+0.006420344193912999,,target:MAOB,target,MAOB,,,1,,,,,,0.0935,
+,,drug:Safinamide,anchor_drug,Safinamide,small_molecule,0,,25,,0.7106,,0,,established_pd_therapy
+,,drug:Adalimumab,drug,Adalimumab,biologic,104,,469,,0.6779,,2,,candidate
+,,drug:Methylphenidate,anchor_drug,Methylphenidate,small_molecule,6,,389,,0.6773,,0,,established_pd_therapy
+0.07114187315128005,,target:SLC6A3,target,SLC6A3,,,1,,,,,,0.1791,
+,,drug:Infliximab,drug,Infliximab,biologic,59,,359,,0.6698,,3,,candidate
+,,drug:Tranylcypromine,drug,Tranylcypromine,small_molecule,0,,14,,0.6622,,4,,candidate
+0.006420344193912999,,target:MAOA,target,MAOA,,,1,,,,,,0.0935,
+,,drug:Certolizumab,drug,Certolizumab,biologic,20,,100,,0.6529,,5,,candidate
+,,drug:Golimumab,drug,Golimumab,biologic,19,,103,,0.6523,,6,,candidate
+,,drug:Moclobemide,drug,Moclobemide,small_molecule,0,,4,,0.6345,,7,,candidate
+,,drug:Isocarboxazid,drug,Isocarboxazid,small_molecule,0,,1,,0.6315,,8,,candidate
+,,drug:Phenelzine,drug,Phenelzine,small_molecule,1,,8,,0.6292,,9,,candidate
+,,drug:Bupropion,drug,Bupropion,small_molecule,10,,345,,0.6254,,10,,candidate
+,120.5444,pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB,pathway,Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB,,,,,2,,0.006420344193912999,,,
+,7.8131,pathway:Interleukin-4 and Interleukin-13 signaling,pathway,Interleukin-4 and Interleukin-13 signaling,,,,,108,,0.006420344193912999,,,
