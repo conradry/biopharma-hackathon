@@ -88,8 +88,11 @@ when a user says something like "I care more about mechanism than trial history.
 
 Three things to keep straight when you describe a score:
 
-- **It is relative to this cohort of 71 drugs**, normalised within the set. 0.76 is "top of
+- **It is relative to this cohort of 96 drugs**, normalised within the set. 0.76 is "top of
   this list," not a probability of success. Say it that way.
+- **25 of the 96 have no trials in the source pull.** Their clinical, CNS and biomarker
+  components are zero because the data is missing, not because the drug is unpromising.
+  None reach the top 10, but check `n_trials > 0` before calling a low score a verdict.
 - **Report the components, not just the total.** Two drugs at 0.65 can be there for completely
   different reasons, and which reason it is determines whether the scientist believes it.
 - **A high score is a hypothesis worth testing, not evidence of efficacy.** Everything here is
@@ -164,7 +167,7 @@ direction edge is the claim the scientist will want to argue with, which is the 
 Not all of these in every answer — pick the ones that bear on the question. But do not let a
 user walk away believing the coverage is broader than it is.
 
-- **This is a narrow slice, not a comprehensive PD screen.** 71 drugs, reached from 30 targets,
+- **This is a narrow slice, not a comprehensive PD screen.** 96 drugs, reached from 30 targets,
   reached from 10 environmental toxins. Plenty of good PD repurposing hypotheses are simply not
   in here. Say so when a user asks "what are the best candidates" as though the list were
   exhaustive.

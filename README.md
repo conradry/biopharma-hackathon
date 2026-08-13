@@ -206,8 +206,10 @@ curated rationale for each direction call.
 
 ### Caveats
 
-- **Scores are relative to this cohort of 71 drugs**, not absolute; components are normalised
-  within the set.
+- **Scores are relative to this cohort of 96 drugs**, not absolute; components are normalised
+  within the set. 25 of the 96 have no trials in the source pull, so their clinical, CNS and
+  biomarker components are zero by absence of data rather than by evidence — none reach the
+  top 10, but check `n_trials > 0` before reading a low score as a judgement.
 - **Trial counts span all indications.** Most trials are the drug's on-label use.
 - **Target→drug is an annotated mechanism, not evidence of PD efficacy.** Hypothesis generation.
 - **The two toxin curations disagree and the disagreement is kept.** The upstream list discards

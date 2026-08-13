@@ -141,7 +141,9 @@ raw AS (
     LEFT JOIN disease_readouts d ON d.drug = p.drug
 ),
 -- Components are normalised across the candidate set, so they are comparable
--- to each other but only meaningful relative to this cohort of 71 drugs.
+-- to each other but only meaningful relative to this cohort of 96 drugs. 25 of them have no
+-- trials in the source pull, so a zero clinical/cns/biomarker component can mean missing data
+-- rather than weak evidence.
 scored AS (
     SELECT r.*,
            coalesce(
