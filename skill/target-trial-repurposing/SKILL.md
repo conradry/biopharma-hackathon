@@ -61,6 +61,28 @@ python3 scripts/assemble_xlsx.py --trials trials_rows.tsv --out database.xlsx --
 Sheets: README (methods+caveats), Drug_Summary (per-drug trial/biomarker counts), Trials (main).
 To merge batches, pass multiple TSVs: `--trials batchA.tsv batchB.tsv` (deduped on drug+NCT).
 
+**Step 4 (optional) — biomarker measures organized BY TARGET**
+The Trials table gives a coarse per-trial biomarker Yes/No. For an itemized, target-centric
+view (what biomarker endpoints exist across each target's drug trials):
+```
+python3 scripts/extract_biomarkers.py --drugs drugs.tsv --out biomarker_rows.tsv
+python3 scripts/assemble_biomarkers.py --in biomarker_rows.tsv --out-dir data --prefix "myproj_"
+```
+Produces:
+- `<prefix>Biomarker_measures.csv` — granular, one row per (target × trial × biomarker outcome
+  measure): full measure text, `Biomarker_category` (PK/imaging/fluid_molecular/inflammation/
+  genomic/other_biomarker), time frame, condition, PD/neuro flag.
+- `<prefix>Biomarker_by_target.csv` — per-target rollup: #drugs, #trials, #measures, category
+  counts, and the distinct measures aggregated under each target.
+
+`extract_biomarkers.py` filters `ctgov.design_outcomes` to biomarker-matching measures (edit `BT`
+to tune the net) and explodes each drug's outcomes across all targets it hits. Categorization is
+keyword-based and priority-ordered so a specific analyte beats generic PK; keep keywords specific
+(e.g. `" spect "` not `"spect"`, which would hit "inspection"; `"tau protein"` not `" tau "`,
+which hits the PK "tau interval"). Category is a convenience — the full `Measure` text is authoritative.
+Most all-indication biomarkers are PK; the repurposing-interesting rows are imaging/fluid_molecular/
+inflammation — filter on `Biomarker_category` and `PD_neuro`.
+
 ## Why the extraction script is non-trivial (do not "simplify" it away)
 Paperclip's trials SQL is delivered through an ASCII renderer with two hard limits the script
 works around, so a naive `SELECT ... measure` loses data:
