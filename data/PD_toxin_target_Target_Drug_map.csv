@@ -1,0 +1,125 @@
+Target_gene,UniProt,Protein,Toxins_implicating_target,Drug,Approval_year,Action_type
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Ambenonium,1956,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Benzgalantamine,2024,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Demecarium,1959,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Distigmine,NULL,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Donepezil,1996,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Echothiophate,1960,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Edrophonium,1951,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Galantamine,2001,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Hexafluorenium,1982,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Isoflurophate,1957,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Minaprine,NULL,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Neostigmine,2013,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Physostigmine,NULL,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Pralidoxime,1964,ACTIVATOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Propanidid,NULL,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Pyridostigmine,1955,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Rivastigmine,1998,INHIBITOR
+ACHE,P22303,Acetylcholinesterase,chlorpyrifos; dieldrin,Tacrine,1993,INHIBITOR
+AKT1,P31749,AKT1,mptp; rotenone,Capivasertib,2023,INHIBITOR
+ALAD,P13716,ALA dehydratase,lead,(no approved direct-MoA drug)
+ALB,P02768,Albumin,mercury,(no approved direct-MoA drug)
+BCHE,P06276,Butyrylcholinesterase,chlorpyrifos,Propanidid,NULL,INHIBITOR
+BCHE,P06276,Butyrylcholinesterase,chlorpyrifos,Rivastigmine,1998,INHIBITOR
+BCHE,P06276,Butyrylcholinesterase,chlorpyrifos,Tacrine,1993,INHIBITOR
+BCL2,P10415,Bcl-2,mptp,Venetoclax,2016,INHIBITOR
+CASP3,P42574,Caspase-3,rotenone,(no approved direct-MoA drug)
+CAT,P04040,Catalase,chlorpyrifos; lead; manganese; mercury; paraquat; rotenone,(no approved direct-MoA drug)
+CD2,P06729,CD2,lead; mercury,Alefacept,2003,INHIBITOR
+CD4,P01730,CD4,trichloroethylene,Ibalizumab,2018,INHIBITOR
+CYP1B1,Q16678,Cytochrome P450 1B1,chlorpyrifos; dieldrin; tetrachloroethylene; trichloroethylene,(no approved direct-MoA drug)
+CYP2E1,P05181,Cytochrome P450 2E1,trichloroethylene,(no approved direct-MoA drug)
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Bazedoxifene,2009,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Clomiphene,1967,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Cyclofenil,NULL,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Dienestrol,1947,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Diethylstilbestrol,1973,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Elacestrant,2023,DEGRADER
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Estetrol,2021,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Estradiol,1975,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Estriol,2000,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,"Estrogens,",1942,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Estrone,1979,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Estropipate,1977,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Ethinyl,1982,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Fulvestrant,2002,ANTAGONIST/DEGRADER
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Lasofoxifene,2009,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Mestranol,1961,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Ospemifene,2013,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Polyestradiol,1957,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Quinestrol,1982,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Raloxifene,1997,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Synthetic,2004,AGONIST
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Tamoxifen,1977,MODULATOR
+ESR1,P03372,Estrogen receptor alpha,dieldrin,Toremifene,1996,MODULATOR
+FTH1,P02794,Ferritin heavy chain,dieldrin,(no approved direct-MoA drug)
+GABPA,Q06546,GA-binding protein alpha,paraquat,(no approved direct-MoA drug)
+GGT1,P19440,Gamma-glutamyltransferase 1,tetrachloroethylene,(no approved direct-MoA drug)
+GPX1,P07203,Glutathione peroxidase 1,mercury; paraquat,(no approved direct-MoA drug)
+HPGDS,O60760,H-prostaglandin D synthase,chlorpyrifos; dieldrin,(no approved direct-MoA drug)
+IL6,P05231,Interleukin-6,paraquat,Siltuximab,2014,ANTAGONIST
+KDR,P35968,VEGFR2 (KDR),dieldrin,Axitinib,2012,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Cabozantinib,2012,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Fruquintinib,2023,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Lenvatinib,2015,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Midostaurin,2017,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Nintedanib,2014,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Pazopanib,2009,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Ramucirumab,2014,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Regorafenib,2012,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Sorafenib,2005,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Sunitinib,2006,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Tivozanib,2017,INHIBITOR
+KDR,P35968,VEGFR2 (KDR),dieldrin,Vandetanib,2011,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Iproniazid,NULL,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Isocarboxazid,1959,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Mebanazine,NULL,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Minaprine,NULL,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Moclobemide,1990,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Nialamide,NULL,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Pargyline,1982,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Phenelzine,1961,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Phenoxypropazine,NULL,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Proxibarbal,NULL,ACTIVATOR
+MAOA,P21397,Monoamine oxidase A,mptp,Toloxatone,1984,INHIBITOR
+MAOA,P21397,Monoamine oxidase A,mptp,Tranylcypromine,1961,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Iproniazid,NULL,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Isocarboxazid,1959,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Mebanazine,NULL,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Nialamide,NULL,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Pargyline,1982,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Phenelzine,1961,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Phenoxypropazine,NULL,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Rasagiline,2005,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Safinamide,2015,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Selegiline,1989,INHIBITOR
+MAOB,P27338,Monoamine oxidase B,mptp,Tranylcypromine,1961,INHIBITOR
+PPARGC1B,Q86YN6,PGC-1beta,tetrachloroethylene,(no approved direct-MoA drug)
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Amphetamine,1955,RELEASING AGENT
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Armodafinil,2007,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Bupropion,1985,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Dexmethylphenidate,2001,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Dextroamphetamine,1955,RELEASING AGENT
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Diethylpropion,1959,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Lisdexamfetamine,2007,RELEASING AGENT
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Mazindol,1973,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Methamphetamine,1943,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Methylphenidate,1955,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Modafinil,1998,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Nomifensine,1984,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Phendimetrazine,1976,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Phenmetrazine,1982,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Pyrovalerone,NULL,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Serdexmethylphenidate,2021,INHIBITOR
+SLC6A3,Q01959,Dopamine transporter (DAT),mptp,Sibutramine,1997,INHIBITOR
+SNCA,P37840,Alpha-synuclein,mptp; rotenone,(no approved direct-MoA drug)
+SOD1,P00441,Superoxide dismutase 1 (Cu-Zn),chlorpyrifos; lead; manganese; mercury; paraquat; rotenone,(no approved direct-MoA drug)
+SOD2,P04179,Superoxide dismutase 2 (Mn),manganese; paraquat,(no approved direct-MoA drug)
+TCEA1,P23193,Transcription elongation factor A1,tetrachloroethylene; trichloroethylene,(no approved direct-MoA drug)
+TH,P07101,Tyrosine hydroxylase,mptp; rotenone,Metyrosine,1979,INHIBITOR
+TNF,P01375,Tumor necrosis factor,mptp; paraquat; rotenone; trichloroethylene,Adalimumab,2002,INHIBITOR
+TNF,P01375,Tumor necrosis factor,mptp; paraquat; rotenone; trichloroethylene,Certolizumab,2008,INHIBITOR
+TNF,P01375,Tumor necrosis factor,mptp; paraquat; rotenone; trichloroethylene,Etanercept,1998,INHIBITOR
+TNF,P01375,Tumor necrosis factor,mptp; paraquat; rotenone; trichloroethylene,Golimumab,2009,INHIBITOR
+TNF,P01375,Tumor necrosis factor,mptp; paraquat; rotenone; trichloroethylene,Infliximab,1998,INHIBITOR

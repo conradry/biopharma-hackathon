@@ -1,0 +1,72 @@
+Drug,Targets,Toxins,Approval_year,Action_type,N_trials,N_biomarker_trials,N_PDneuro_trials
+Adalimumab,TNF,mptp; paraquat; rotenone; trichloroethylene,2002,INHIBITOR,469,61,0
+Alefacept,CD2,lead; mercury,2003,INHIBITOR,35,2,0
+Amphetamine,SLC6A3,mptp,1955,RELEASING AGENT,147,19,4
+Armodafinil,SLC6A3,mptp,2007,INHIBITOR,54,3,3
+Axitinib,KDR,dieldrin,2012,INHIBITOR,179,50,0
+Bazedoxifene,ESR1,dieldrin,2009,MODULATOR,40,10,1
+Bupropion,SLC6A3,mptp,1985,INHIBITOR,345,33,8
+Cabozantinib,KDR,dieldrin,2012,INHIBITOR,249,35,0
+Capivasertib,AKT1,mptp; rotenone,2023,INHIBITOR,40,15,0
+Certolizumab,TNF,mptp; paraquat; rotenone; trichloroethylene,2008,INHIBITOR,100,17,0
+Clomiphene,ESR1,dieldrin,1967,MODULATOR,138,2,0
+Dexmethylphenidate,SLC6A3,mptp,2001,INHIBITOR,16,2,0
+Dextroamphetamine,SLC6A3,mptp,1955,RELEASING AGENT,27,2,2
+Diethylpropion,SLC6A3,mptp,1959,INHIBITOR,2,0,0
+Diethylstilbestrol,ESR1,dieldrin,1973,AGONIST,2,0,0
+Donepezil,ACHE,chlorpyrifos; dieldrin,1996,INHIBITOR,265,31,162
+Echothiophate,ACHE,chlorpyrifos; dieldrin,1960,INHIBITOR,1,0,0
+Edrophonium,ACHE,chlorpyrifos; dieldrin,1951,INHIBITOR,1,0,1
+Elacestrant,ESR1,dieldrin,2023,DEGRADER,32,10,0
+Estetrol,ESR1,dieldrin,2021,AGONIST,21,7,0
+Estradiol,ESR1,dieldrin,1975,AGONIST,676,91,5
+Estriol,ESR1,dieldrin,2000,MODULATOR,30,3,0
+Estrogens,,,,,63,9,1
+Estrone,ESR1,dieldrin,1979,AGONIST,6,0,0
+Etanercept,TNF,mptp; paraquat; rotenone; trichloroethylene,1998,INHIBITOR,354,35,5
+Ethinyl Estradiol,,,,,170,42,0
+Fruquintinib,KDR,dieldrin,2023,INHIBITOR,175,17,0
+Fulvestrant,ESR1,dieldrin,2002,ANTAGONIST/DEGRADER,467,130,0
+Galantamine,ACHE,chlorpyrifos; dieldrin,2001,INHIBITOR,91,4,49
+Golimumab,TNF,mptp; paraquat; rotenone; trichloroethylene,2009,INHIBITOR,103,12,0
+Ibalizumab,CD4,trichloroethylene,2018,INHIBITOR,9,2,0
+Infliximab,TNF,mptp; paraquat; rotenone; trichloroethylene,1998,INHIBITOR,359,37,0
+Isocarboxazid,MAOA; MAOB,mptp,1959,INHIBITOR,1,0,1
+Lasofoxifene,ESR1,dieldrin,2009,MODULATOR,9,3,0
+Lenvatinib,KDR,dieldrin,2015,INHIBITOR,528,74,0
+Lisdexamfetamine,SLC6A3,mptp,2007,RELEASING AGENT,83,7,5
+Mazindol,SLC6A3,mptp,1973,INHIBITOR,4,0,0
+Methamphetamine,SLC6A3,mptp,1943,INHIBITOR,56,8,1
+Methylphenidate,SLC6A3,mptp,1955,INHIBITOR,389,24,29
+Metyrosine,TH,mptp; rotenone,1979,INHIBITOR,2,0,0
+Midostaurin,KDR,dieldrin,2017,INHIBITOR,45,9,0
+Moclobemide,MAOA,mptp,1990,INHIBITOR,4,0,1
+Modafinil,SLC6A3,mptp,1998,INHIBITOR,203,10,24
+Neostigmine,ACHE,chlorpyrifos; dieldrin,2013,INHIBITOR,196,4,1
+Nintedanib,KDR,dieldrin,2014,INHIBITOR,124,18,0
+Ospemifene,ESR1,dieldrin,2013,MODULATOR,10,0,0
+Pazopanib,KDR,dieldrin,2009,INHIBITOR,262,66,0
+Phendimetrazine,SLC6A3,mptp,1976,INHIBITOR,1,0,0
+Phenelzine,MAOA; MAOB,mptp,1961,INHIBITOR,8,2,0
+Physostigmine,ACHE,chlorpyrifos; dieldrin,NULL,INHIBITOR,9,1,1
+Pralidoxime,ACHE,chlorpyrifos; dieldrin,1964,ACTIVATOR,3,0,0
+Pyridostigmine,ACHE,chlorpyrifos; dieldrin,1955,INHIBITOR,38,1,2
+Raloxifene,ESR1,dieldrin,1997,MODULATOR,69,8,3
+Ramucirumab,KDR,dieldrin,2014,INHIBITOR,166,58,0
+Rasagiline,MAOB,mptp,2005,INHIBITOR,51,6,42
+Regorafenib,KDR,dieldrin,2012,INHIBITOR,305,56,0
+Rivastigmine,ACHE; BCHE,chlorpyrifos; dieldrin,1998,INHIBITOR,80,6,53
+Safinamide,MAOB,mptp,2015,INHIBITOR,25,3,19
+Selegiline,MAOB,mptp,1989,INHIBITOR,29,2,6
+Serdexmethylphenidate,SLC6A3,mptp,2021,INHIBITOR,4,0,0
+Sibutramine,SLC6A3,mptp,1997,INHIBITOR,33,3,0
+Siltuximab,IL6,paraquat,2014,ANTAGONIST,33,9,0
+Sorafenib,KDR,dieldrin,2005,INHIBITOR,704,123,0
+Sunitinib,KDR,dieldrin,2006,INHIBITOR,421,86,1
+Tacrine,ACHE; BCHE,chlorpyrifos; dieldrin,1993,INHIBITOR,1,1,0
+Tamoxifen,ESR1,dieldrin,1977,MODULATOR,386,52,1
+Tivozanib,KDR,dieldrin,2017,INHIBITOR,38,12,0
+Toremifene,ESR1,dieldrin,1996,MODULATOR,30,0,0
+Tranylcypromine,MAOA; MAOB,mptp,1961,INHIBITOR,14,1,1
+Vandetanib,KDR,dieldrin,2011,INHIBITOR,87,15,0
+Venetoclax,BCL2,mptp,2016,INHIBITOR,685,119,0
