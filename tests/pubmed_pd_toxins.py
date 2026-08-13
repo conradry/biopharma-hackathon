@@ -24,7 +24,6 @@ python3 pubmed_pd_toxins.py --api-key YOUR_KEY --out pd_toxin_papers.csv
 
 import argparse
 import csv
-import re
 import sys
 import time
 import xml.etree.ElementTree as ET
@@ -36,7 +35,7 @@ EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 DEFAULT_QUERY = (
     '("Parkinson Disease"[MeSH Terms] OR "Parkinson\'s disease"[Title/Abstract]) '
     'AND ("environmental exposure"[MeSH Terms] OR pesticide[Title/Abstract] OR '
-    'herbicide[Title/Abstract] OR solvent[Title/Abstract] OR toxin[Title/Abstract] '
+    "herbicide[Title/Abstract] OR solvent[Title/Abstract] OR toxin[Title/Abstract] "
     'OR toxicant[Title/Abstract] OR "heavy metal"[Title/Abstract]) '
     'AND ("risk"[Title/Abstract] OR "association"[Title/Abstract])'
 )
@@ -44,12 +43,35 @@ DEFAULT_QUERY = (
 # Known/candidate PD-linked environmental toxins to flag when scanning abstracts.
 # Extend this list as needed.
 TOXIN_KEYWORDS = [
-    "paraquat", "rotenone", "chlorpyrifos", "organochlorine", "organophosphate",
-    "trichloroethylene", "tce", "perchloroethylene", "tetrachloroethylene", "pce",
-    "manganese", "lead", "mercury", "cadmium", "arsenic",
-    "mptp", "agent orange", "dioxin", "pcb", "polychlorinated biphenyl",
-    "air pollution", "particulate matter", "pm2.5", "traffic-related",
-    "dieldrin", "ddt", "atrazine", "glyphosate", "permethrin",
+    "paraquat",
+    "rotenone",
+    "chlorpyrifos",
+    "organochlorine",
+    "organophosphate",
+    "trichloroethylene",
+    "tce",
+    "perchloroethylene",
+    "tetrachloroethylene",
+    "pce",
+    "manganese",
+    "lead",
+    "mercury",
+    "cadmium",
+    "arsenic",
+    "mptp",
+    "agent orange",
+    "dioxin",
+    "pcb",
+    "polychlorinated biphenyl",
+    "air pollution",
+    "particulate matter",
+    "pm2.5",
+    "traffic-related",
+    "dieldrin",
+    "ddt",
+    "atrazine",
+    "glyphosate",
+    "permethrin",
 ]
 
 
@@ -88,13 +110,10 @@ def parse_article(article_elem):
     pmid = article_elem.findtext(".//PMID", default="")
     title = article_elem.findtext(".//ArticleTitle", default="")
     journal = article_elem.findtext(".//Journal/Title", default="")
-    year = (
-        article_elem.findtext(".//JournalIssue/PubDate/Year")
-        or article_elem.findtext(".//JournalIssue/PubDate/MedlineDate", default="")
+    year = article_elem.findtext(".//JournalIssue/PubDate/Year") or article_elem.findtext(
+        ".//JournalIssue/PubDate/MedlineDate", default=""
     )
-    abstract_parts = [
-        (elem.text or "") for elem in article_elem.findall(".//AbstractText")
-    ]
+    abstract_parts = [(elem.text or "") for elem in article_elem.findall(".//AbstractText")]
     abstract = " ".join(abstract_parts).strip()
 
     authors = []
@@ -146,10 +165,14 @@ def summarize_toxins(rows):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Query PubMed for PD/environmental toxin literature")
+    parser = argparse.ArgumentParser(
+        description="Query PubMed for PD/environmental toxin literature"
+    )
     parser.add_argument("--query", default=DEFAULT_QUERY, help="PubMed search query")
     parser.add_argument("--max", type=int, default=100, help="max number of records to fetch")
-    parser.add_argument("--api-key", default=None, help="NCBI API key (optional, raises rate limit)")
+    parser.add_argument(
+        "--api-key", default=None, help="NCBI API key (optional, raises rate limit)"
+    )
     parser.add_argument("--out", default="pd_toxin_papers.csv", help="output CSV path")
     args = parser.parse_args()
 

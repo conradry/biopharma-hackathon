@@ -22,6 +22,7 @@ import argparse
 import csv
 import sys
 import time
+
 import requests
 
 PUG_REST = "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
@@ -93,7 +94,7 @@ def walk_sections(sections, path=None):
     path = path or []
     for sec in sections or []:
         heading = sec.get("TOCHeading", "")
-        new_path = path + [heading]
+        new_path = [*path, heading]
         if sec.get("Information"):
             yield new_path, sec["Information"]
         if sec.get("Section"):
@@ -138,9 +139,7 @@ def check_compound(identifier, id_type="name"):
         "CID": cid,
         "HasHumanData": bool(matches),
         "MatchedSections": "; ".join(matches.keys()) if matches else "",
-        "SampleExcerpt": (
-            next(iter(matches.values()))[0][:300] if matches else ""
-        ),
+        "SampleExcerpt": (next(iter(matches.values()))[0][:300] if matches else ""),
     }
 
 
@@ -154,7 +153,8 @@ def main():
     group.add_argument("--names", nargs="+", help="multiple compound names")
     parser.add_argument("--out", help="write summary to this CSV file")
     parser.add_argument(
-        "--full", action="store_true",
+        "--full",
+        action="store_true",
         help="print all matched excerpts in full, not just a sample",
     )
     args = parser.parse_args()

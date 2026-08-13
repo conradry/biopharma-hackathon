@@ -48,6 +48,7 @@ python3 toxin_pd_correlation.py correlate \
 import argparse
 import sys
 import time
+
 import numpy as np
 import pandas as pd
 import requests
@@ -64,18 +65,23 @@ CDC_PM25_API = "https://data.cdc.gov/resource/dqwm-pbi7.json"
 # Step 1a: USGS pesticide data
 # ---------------------------------------------------------------------
 
+
 def fetch_pesticide_year(year, compounds=None):
     """Download and parse one year of USGS county-level pesticide-use estimates."""
     url = USGS_PESTICIDE_URL.format(year=year)
     print(f"  fetching pesticide data for {year} ...")
     resp = requests.get(url, timeout=60)
     if resp.status_code != 200:
-        print(f"  ! no USGS file for {year} (status {resp.status_code}); "
-              f"years 1992-2012 are available via this URL pattern, "
-              f"2013+ requires the ScienceBase downloads instead", file=sys.stderr)
+        print(
+            f"  ! no USGS file for {year} (status {resp.status_code}); "
+            f"years 1992-2012 are available via this URL pattern, "
+            f"2013+ requires the ScienceBase downloads instead",
+            file=sys.stderr,
+        )
         return pd.DataFrame()
 
     from io import StringIO
+
     df = pd.read_csv(StringIO(resp.text), sep="\t", dtype=str)
     df.columns = [c.strip() for c in df.columns]
     df["FIPS"] = df["STATE_FIPS_CODE"].str.zfill(2) + df["COUNTY_FIPS_CODE"].str.zfill(3)
@@ -106,8 +112,7 @@ def fetch_pesticides(years, compounds=None, pause=0.5):
         index=["FIPS", "YEAR"], columns="COMPOUND", values="EPEST_KG", aggfunc="sum"
     ).reset_index()
     wide.columns = [
-        c if c in ("FIPS", "YEAR") else f"pesticide_{c.replace(' ', '_')}"
-        for c in wide.columns
+        c if c in ("FIPS", "YEAR") else f"pesticide_{c.replace(' ', '_')}" for c in wide.columns
     ]
     return wide
 
@@ -115,6 +120,7 @@ def fetch_pesticides(years, compounds=None, pause=0.5):
 # ---------------------------------------------------------------------
 # Step 1b: CDC PM2.5 data (Socrata API)
 # ---------------------------------------------------------------------
+
 
 def fetch_pm25(years, pause=0.3):
     """
@@ -163,6 +169,7 @@ def fetch_pm25(years, pause=0.3):
 # Step 2: merge with PD incidence and compute lagged correlations
 # ---------------------------------------------------------------------
 
+
 def load_pd_incidence(path, fips_col="county_fips", year_col="year", rate_col="pd_incidence_rate"):
     df = pd.read_csv(path, dtype={fips_col: str})
     df = df.rename(columns={fips_col: "FIPS", year_col: "YEAR", rate_col: "PD_INCIDENCE"})
@@ -194,8 +201,7 @@ def lagged_correlation(panel, exposure_col, lags):
 
 def run_correlations(panel, lags):
     exposure_cols = [
-        c for c in panel.columns
-        if c.startswith("pesticide_") or c == "pm25_annual_mean"
+        c for c in panel.columns if c.startswith("pesticide_") or c == "pm25_annual_mean"
     ]
     results = []
     for col in exposure_cols:
@@ -210,17 +216,26 @@ def run_correlations(panel, lags):
 # CLI
 # ---------------------------------------------------------------------
 
+
 def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     sub = parser.add_subparsers(dest="command", required=True)
 
     p_fetch = sub.add_parser("fetch", help="pull pesticide + PM2.5 data into a county x year panel")
     p_fetch.add_argument("--years", nargs=2, type=int, metavar=("START", "END"), required=True)
-    p_fetch.add_argument("--compounds", nargs="+", default=None,
-                          help="restrict to specific pesticide compounds, e.g. paraquat rotenone")
+    p_fetch.add_argument(
+        "--compounds",
+        nargs="+",
+        default=None,
+        help="restrict to specific pesticide compounds, e.g. paraquat rotenone",
+    )
     p_fetch.add_argument("--out", default="panel_exposure.csv")
 
-    p_corr = sub.add_parser("correlate", help="merge exposure panel with PD incidence and compute lagged correlations")
+    p_corr = sub.add_parser(
+        "correlate", help="merge exposure panel with PD incidence and compute lagged correlations"
+    )
     p_corr.add_argument("--exposure", required=True, help="CSV from the 'fetch' step")
     p_corr.add_argument("--pd-csv", required=True, help="manually exported GBD PD incidence CSV")
     p_corr.add_argument("--pd-fips-col", default="county_fips")
@@ -237,10 +252,14 @@ def main():
         pm25_df = fetch_pm25(years)
         panel = pesticide_df.merge(pm25_df, on=["FIPS", "YEAR"], how="outer")
         panel.to_csv(args.out, index=False)
-        print(f"\nSaved exposure panel ({len(panel)} rows, {len(panel.columns)} columns) to {args.out}")
+        print(
+            f"\nSaved exposure panel ({len(panel)} rows, {len(panel.columns)} columns) to {args.out}"
+        )
         print("NOTE: this covers pesticide use (1992-2012 via USGS static files) and PM2.5.")
-        print("Next: export PD incidence from https://vizhub.healthdata.org/gbd-results/ "
-              "and run the 'correlate' command.")
+        print(
+            "Next: export PD incidence from https://vizhub.healthdata.org/gbd-results/ "
+            "and run the 'correlate' command."
+        )
 
     elif args.command == "correlate":
         panel = pd.read_csv(args.exposure, dtype={"FIPS": str})
@@ -249,8 +268,11 @@ def main():
         panel = panel.merge(pd_df, on=["FIPS", "YEAR"], how="left")
 
         if panel["PD_INCIDENCE"].notna().sum() == 0:
-            print("! No matching FIPS/YEAR rows between exposure panel and PD incidence file. "
-                  "Check that FIPS codes and years line up.", file=sys.stderr)
+            print(
+                "! No matching FIPS/YEAR rows between exposure panel and PD incidence file. "
+                "Check that FIPS codes and years line up.",
+                file=sys.stderr,
+            )
             sys.exit(1)
 
         results = run_correlations(panel, args.lags)
