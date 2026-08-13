@@ -1,0 +1,35 @@
+PD Environmental-Toxin Target → Approved-Drug → Clinical-Trial Repurposing Database
+
+WHAT THIS IS
+Drug-repurposing evidence base. Pipeline: PD environmental toxins → their top human gene
+"targets (from pd_toxin_human_data_integrated.csv, TopGeneTargets) → approved drugs with a"
+"direct mechanism of action on those targets (ChEMBL, max_phase=4) → ALL of those drugs'"
+"clinical trials across every indication (ClinicalTrials.gov), with outcome & biomarker measures."
+
+SOURCES
+Targets→UniProt: UniProt (Homo sapiens).  Target→drug: ChEMBL drugs_by_accession (direct
+"mechanism, max_phase=4 = approved).  Trials: ClinicalTrials.gov (AACT: studies, interventions,"
+"conditions, design_outcomes). Accessed via Paperclip on 2026-08-13."
+
+SHEETS
+• Toxin_Target_map  — each toxin → its druggable human targets (+ excluded artifacts).
+"• Target_Drug_map   — each target → approved drugs (UniProt, approval year, action type)."
+"• Drug_Summary      — one row per drug: targets, toxins, #trials, #biomarker trials."
+"• Trials            — one row per (drug, trial): outcome measures + biomarker flag. MAIN TABLE."
+
+IMPORTANT CAVEATS
+"1. Scope = ALL indications. Most trials are the drug's on-label use (oncology, HRT, ADHD,"
+"   rheumatology, etc.), NOT Parkinson's. Filter by the 'conditions' column for PD/neuro."
+2. Target→drug is by ANNOTATED DIRECT MECHANISM in ChEMBL; it does not imply the drug was
+   tested for PD or that the toxin-target link is therapeutic. This is hypothesis-generation.
+3. Outcome-measure text is reassembled from the registry 'measure' fields; where a trial has
+   many/long outcomes the text is capped (~220 chars) — n_primary/n_secondary give the true
+   counts and the NCT link has the full record.
+"4. 'biomarker_measures' = Yes if any outcome measure matched a biomarker keyword (PK, biomarker,"
+"   synuclein, neurofilament, CSF, amyloid, PET/SPECT imaging, cytokine, EGFR mutation, PD-L1,"
+"   receptor occupancy, dopamine transporter, etc.). Screen, then verify per trial."
+5. EXCLUDED non-human ortholog artifacts from TopGeneTargets (KEGG/BlastKOALA cross-species
+"   hits, not human drug targets): influenza PB2, bacterial mercuric reductase (MERA), insect"
+"   GABA receptor (RDL), plant/fungal laccase, lignin/manganese peroxidase, photosystem II,"
+"   ferredoxin hydrogenase, reductive dehalogenase, generic peroxidase, NADH dehydrogenase,"
+"   Lon protease, rice LOC4326471. Per-toxin list on the Toxin_Target_map sheet."

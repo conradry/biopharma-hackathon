@@ -1,0 +1,11 @@
+Toxin,Has_human_data,N_druggable_targets,Druggable_human_targets,Excluded_ortholog_artifacts
+chlorpyrifos,Yes,6,ACHE; BCHE; CAT; CYP1B1; HPGDS; SOD1
+dieldrin,Yes,6,ACHE; CYP1B1; ESR1; FTH1; HPGDS; KDR,mdrdl [RDL]; unspecific monooxygenase [EC:1.14.14.1]
+lead,Yes,4,ALAD; CAT; CD2; SOD1,peroxidase [EC:1.11.1.7]; polymerase basic protein 2 [PB2]
+manganese,Yes,3,CAT; SOD1; SOD2,laccase [EC:1.10.3.2]; lignin peroxidase [EC:1.11.1.14]; manganese peroxidase [EC:1.11.1.13]; peroxidase [EC:1.11.1.7]; photosystem ii [EC:1.10.3.9]
+mercury,Yes,5,ALB; CAT; CD2; GPX1; SOD1,mercuric reductase [MERA]; peroxidase [EC:1.11.1.7]; polymerase basic protein 2 [PB2]
+mptp,Yes,8,AKT1; BCL2; MAOA; MAOB; SLC6A3; SNCA; TH; TNF
+paraquat,Yes,7,CAT; GABPA; GPX1; IL6; SOD1; SOD2; TNF,peroxidase [EC:1.11.1.7]
+rotenone,Yes,7,AKT1; CASP3; CAT; SNCA; SOD1; TH; TNF,nadh dehydrogenase [EC:1.6.99.3]
+tetrachloroethylene,Yes,4,CYP1B1; GGT1; PPARGC1B; TCEA1,ferredoxin hydrogenase [EC:1.12.7.2]; lon protease [LON]; tetrachloroethene reductive dehalogenase [EC:1.21.99.5]; unspecific monooxygenase [EC:1.14.14.1]
+trichloroethylene,Yes,5,CD4; CYP1B1; CYP2E1; TCEA1; TNF,lon protease [LON]; salt stress-induced protein-like [LOC4326471]; unspecific monooxygenase [EC:1.14.14.1]
