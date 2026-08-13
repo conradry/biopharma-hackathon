@@ -22,6 +22,26 @@ uv run pre-commit run --all-files
 
 Package code lives in `src/biopharma_hackathon/`, tests in `tests/`.
 
+## Repository layout
+
+```
+src/biopharma_hackathon/   genomescreen + pdkb packages
+scripts/                   subgraph / toxin-target / ranking-graph exporters
+tests/                     pytest suite
+data/                      derived tables (mostly gitignored; small deliverables tracked)
+├── pd_toxin_human_data_integrated.csv   toxin → human-data → target input
+├── PD_toxin_target_*.csv                toxin-target repurposing tables (feed pdkb)
+├── pd_top10*, pd_ranking*, pd_*.mmd     the ranked shortlist + evidence graphs (see data/README.md)
+└── pd_seed_target/                      PD-seed pathway repurposing cut (see its README)
+skill/                     two portable Paperclip skills that generate the data/ tables (see skill/README.md)
+docs/                      presentation / slides
+```
+
+Two repurposing cuts share the `target-trial-repurposing` method but differ in target set:
+the **toxin** cut (30 environmental-toxin targets, 96 drugs) is what `pdkb` scores and ranks;
+the **PD-seed** cut (`data/pd_seed_target/`, 90 pathway-seed genes → 119 approved drugs → 8,940
+trials) is a broader, more dopaminergic parallel view.
+
 ## Published data
 
 Derived tables live in the Hugging Face dataset
