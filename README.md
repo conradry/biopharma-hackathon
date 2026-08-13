@@ -129,3 +129,91 @@ artifacts rather than real Reactome entries — add `pathway_size >= 10` for rob
 Two streaming passes over the source CSV, no scipy dependency: the hypergeometric survival
 function and BH correction are implemented in log space in the script itself (validated
 against `scipy.stats` to ~1e-13).
+
+`scripts/build_toxin_targets.py` adds an environmental-toxin overlay on the same pathways —
+ten PD-associated toxins mapped to their literature gene targets, specificity-weighted and
+rolled up per pathway (`data/pd_toxin_target.parquet`, `data/pd_toxin_pathway.parquet`).
+**9 of the 21 enriched pathways contain a toxin target**, topped by ROS detoxification and
+mitochondrial biogenesis. Mechanism lives in the EC numbers, not the gene symbols: MPTP's
+causal target (monoamine oxidase) and rotenone's (complex I) appear only as `EC:1.4.3.4` and
+`EC:1.6.99.3`, so the script carries a hand-curated EC→gene map and asserts both anchors in
+`tests/test_toxin_targets.py`.
+
+## Repurposing knowledge base
+
+`biopharma_hackathon.pdkb` joins every layer above into one DuckDB file for an agent to query,
+and can unfold any candidate back into the evidence that produced it.
+
+```bash
+uv run pdkb-build                          # -> pd_kb.duckdb (~11 MB)
+uv run pdkb-rank --limit 20                # the prioritised candidate list
+uv run pdkb-rank --verdict mechanistic_risk
+uv run pdkb-graph Rasagiline --format mermaid   # why this one might work
+uv run pdkb-graph Capivasertib --format dot --out risk.dot
+```
+
+| table | rows | what it is |
+| --- | ---: | --- |
+| `pd_tree`, `pd_edges`, `pathway_enrichment` | 54,557 / 162,384 / 283 | PrimeKG PD neighbourhood |
+| `toxin_target`, `toxin_pathway` | 79 / 76 | the toxin overlay |
+| `target_drug`, `drug_summary`, `trials` | 124 / 71 / 9,802 | ChEMBL approved drugs + ClinicalTrials.gov |
+| `mechanism_direction` | 30 | curated: which way to push each target |
+| `screen_hits` | 6,018 | DrugCLIP hits for the 17 screened PD targets |
+| `curation_conflicts` | 12 | where the two toxin curations disagree |
+
+Views: `drug_candidates` (scored, one row per drug), `drug_target_evidence` (per drug × target),
+`undrugged_targets`, `pathway_evidence`.
+
+### Direction is the gate
+
+PrimeKG records *that* a drug hits a protein and ChEMBL records *how*, but neither knows a toxin
+and a drug can push one target opposite ways. `pdkb/mechanism.py` encodes, per target, which
+action opposes the toxin insult and which mimics it. Without it the ranking promotes drugs that
+reproduce the disease mechanism — it catches **venetoclax** (BCL2 inhibitor, anti-apoptotic
+target), **capivasertib** (AKT inhibitor, a pathway rotenone already suppresses), **metyrosine**
+(TH inhibitor, depletes dopamine) and **amphetamine** (DAT releasing agent, the route MPP+ takes
+into neurons). All four score as `mechanistic_risk`, not as candidates. Targets where the
+argument genuinely runs both ways — the cholinesterases — are marked `ambiguous` and scored
+neutral rather than resolved by fiat.
+
+### Ranking
+
+`priority_score` is a weighted sum of six components, all kept as columns so it can be taken
+apart: `direction` (0.30), `pathway` (0.18), `toxin` (0.18), `cns` (0.17), `clinical` (0.10),
+`biomarker` (0.07). Weights live in the `score_weights` table — `UPDATE` it and re-select
+`drug_candidates` to get a different ranking with no rebuild.
+
+Validation: the three approved PD MAO-B inhibitors (rasagiline, safinamide, selegiline) come out
+at ranks 2–4 without anything telling the pipeline they are PD drugs.
+
+The `cns` component exists because trial volume alone floats systemic blockbusters to the top —
+adalimumab and infliximab have 469 and 359 trials and **zero** in any neurological indication,
+yet PD is a CNS disease and IgG reaches CSF at well under 1% of serum. Antibodies are discounted,
+not zeroed: a peripheral immune mechanism is a live hypothesis.
+
+### Evidence graphs
+
+`pdkb-graph <drug>` exports the reasoning as Mermaid, Graphviz DOT or JSON:
+
+```
+toxin --implicates--> target <--acts on-- drug
+                        └--member of--> pathway --enriched in--> Parkinson's
+```
+
+Drug edges are coloured by direction — green opposes the insult, red mimics it, amber is
+two-sided — so a scientist sees the arguable claim rather than a number. The JSON carries the
+curated rationale for each direction call.
+
+### Caveats
+
+- **Scores are relative to this cohort of 71 drugs**, not absolute; components are normalised
+  within the set.
+- **Trial counts span all indications.** Most trials are the drug's on-label use.
+- **Target→drug is an annotated mechanism, not evidence of PD efficacy.** Hypothesis generation.
+- **The two toxin curations disagree and the disagreement is kept.** The upstream list discards
+  `nadh dehydrogenase [EC:1.6.99.3]` as a cross-species artifact, but the human NDUF subunits are
+  real and rotenone's inhibition of complex I is the canonical PD mechanism. See
+  `curation_conflicts`.
+- **16 of 30 targets have no approved drug at all** — including SNCA, SOD2 and PGC-1β. Repurposing
+  has nothing to offer them; `undrugged_targets` joins them to the virtual screen, which covers
+  only 7 of the 16.
