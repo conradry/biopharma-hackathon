@@ -18,7 +18,16 @@ venv/
 .ipynb_checkpoints/
 
 # Bulk data downloads
-data/
+data/*
+# ...but the small generated deliverables are tracked: the ranking and the
+# graph exports are what gets shared, and they are a few KB each.
+!data/pd_ranking_top10.csv
+!data/pd_top10_nodes.csv
+!data/pd_top10_edges.csv
+!data/pd_top10.graphml
+!data/pd_top10_mechanism.mmd
+!data/pd_top10_readouts.mmd
+!data/pd_pathway_convergence.mmd
 
 # Built databases
 *.duckdb
@@ -28,3 +37,7 @@ data/
 .vscode/
 .idea/
 .DS_Store
+
+# Local Claude Code settings
+.claude/settings.local.json
+!data/README.md

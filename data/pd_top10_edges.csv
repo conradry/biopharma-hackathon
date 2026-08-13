@@ -1,0 +1,56 @@
+direction,direction_confidence,kind,label,qvalue,source,target
+protective,plausible,acts_on,inhibitor,,drug:Etanercept,target:TNF
+,,implicates,implicates,,toxin:rotenone,target:TNF
+,,implicates,implicates,,toxin:trichloroethylene,target:TNF
+,,implicates,implicates,,toxin:paraquat,target:TNF
+,,implicates,implicates,,toxin:mptp,target:TNF
+protective,established,acts_on,inhibitor,,drug:Rasagiline,target:MAOB
+,,implicates,implicates,,toxin:mptp,target:MAOB
+protective,established,acts_on,inhibitor,,drug:Safinamide,target:MAOB
+,,implicates,implicates,,toxin:mptp,target:MAOB
+protective,plausible,acts_on,inhibitor,,drug:Adalimumab,target:TNF
+,,implicates,implicates,,toxin:rotenone,target:TNF
+,,implicates,implicates,,toxin:trichloroethylene,target:TNF
+,,implicates,implicates,,toxin:paraquat,target:TNF
+,,implicates,implicates,,toxin:mptp,target:TNF
+protective,plausible,acts_on,inhibitor,,drug:Methylphenidate,target:SLC6A3
+,,implicates,implicates,,toxin:mptp,target:SLC6A3
+protective,plausible,acts_on,inhibitor,,drug:Infliximab,target:TNF
+,,implicates,implicates,,toxin:rotenone,target:TNF
+,,implicates,implicates,,toxin:trichloroethylene,target:TNF
+,,implicates,implicates,,toxin:paraquat,target:TNF
+,,implicates,implicates,,toxin:mptp,target:TNF
+protective,plausible,acts_on,inhibitor,,drug:Tranylcypromine,target:MAOA
+,,implicates,implicates,,toxin:mptp,target:MAOA
+protective,established,acts_on,inhibitor,,drug:Tranylcypromine,target:MAOB
+,,implicates,implicates,,toxin:mptp,target:MAOB
+protective,plausible,acts_on,inhibitor,,drug:Certolizumab,target:TNF
+,,implicates,implicates,,toxin:rotenone,target:TNF
+,,implicates,implicates,,toxin:trichloroethylene,target:TNF
+,,implicates,implicates,,toxin:paraquat,target:TNF
+,,implicates,implicates,,toxin:mptp,target:TNF
+protective,plausible,acts_on,inhibitor,,drug:Golimumab,target:TNF
+,,implicates,implicates,,toxin:rotenone,target:TNF
+,,implicates,implicates,,toxin:trichloroethylene,target:TNF
+,,implicates,implicates,,toxin:paraquat,target:TNF
+,,implicates,implicates,,toxin:mptp,target:TNF
+protective,plausible,acts_on,inhibitor,,drug:Moclobemide,target:MAOA
+,,implicates,implicates,,toxin:mptp,target:MAOA
+protective,plausible,acts_on,inhibitor,,drug:Isocarboxazid,target:MAOA
+,,implicates,implicates,,toxin:mptp,target:MAOA
+protective,established,acts_on,inhibitor,,drug:Isocarboxazid,target:MAOB
+,,implicates,implicates,,toxin:mptp,target:MAOB
+protective,plausible,acts_on,inhibitor,,drug:Phenelzine,target:MAOA
+,,implicates,implicates,,toxin:mptp,target:MAOA
+protective,established,acts_on,inhibitor,,drug:Phenelzine,target:MAOB
+,,implicates,implicates,,toxin:mptp,target:MAOB
+protective,plausible,acts_on,inhibitor,,drug:Bupropion,target:SLC6A3
+,,implicates,implicates,,toxin:mptp,target:SLC6A3
+,,member_of,in pathway,,target:MAOA,pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB
+,,enriched_in,q=0.0064,0.006420344193912999,pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB,disease:Parkinson disease
+,,member_of,in pathway,,target:MAOA,pathway:Interleukin-4 and Interleukin-13 signaling
+,,enriched_in,q=0.0064,0.006420344193912999,pathway:Interleukin-4 and Interleukin-13 signaling,disease:Parkinson disease
+,,member_of,in pathway,,target:MAOB,pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB
+,,enriched_in,q=0.0064,0.006420344193912999,pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB,disease:Parkinson disease
+,,member_of,in pathway,,target:TNF,pathway:Interleukin-4 and Interleukin-13 signaling
+,,enriched_in,q=0.0064,0.006420344193912999,pathway:Interleukin-4 and Interleukin-13 signaling,disease:Parkinson disease

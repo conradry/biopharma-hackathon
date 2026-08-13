@@ -1,0 +1,50 @@
+{
+  "skill_name": "pd-drug-repurposing",
+  "evals": [
+    {
+      "id": 0,
+      "name": "top-candidates-team-meeting",
+      "prompt": "we've got the parkinsons evidence base built out in this repo \u2014 what are the most promising drugs to repurpose? i need to bring 2-3 concrete suggestions to our team meeting thursday and actually be able to defend them",
+      "expected_output": "Novel candidates only (not already-approved PD drugs), each with target/action, direction rationale, toxin+pathway evidence, and a stated failure mode. Should note the already-approved PD drugs as pipeline validation rather than proposals.",
+      "files": [],
+      "assertions": [
+        "Proposes at least 2 specific named drug candidates",
+        "Proposals exclude drugs already approved/used in PD (rasagiline, safinamide, selegiline, rivastigmine, donepezil, methylphenidate)",
+        "Explains that already-approved PD drugs ranking highly is pipeline validation, not a proposal",
+        "Gives the molecular target and direction of action for each proposed candidate",
+        "States a specific failure mode or weakness for each proposed candidate",
+        "Cites concrete numbers (q-value, trial count, or toxin count) rather than adjectives alone",
+        "Flags that the cohort is a narrow slice (71 drugs from 30 targets from 10 toxins), not a comprehensive PD screen"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "sanity-check-risk-drug",
+      "prompt": "someone on the team is pushing hard for capivasertib for the PD program because AKT1 came up in our target list. can you sanity check that before i have to give an opinion",
+      "expected_output": "Identifies capivasertib as mechanistic_risk: it inhibits AKT1, a pro-survival pathway that rotenone/MPTP already suppress, so it pushes the same direction as the toxin. Should recommend against and explain the direction logic.",
+      "files": [],
+      "assertions": [
+        "Recommends against capivasertib for the PD program",
+        "Identifies it as a mechanistic risk / wrong-direction hypothesis rather than a weak candidate",
+        "Explains that inhibiting AKT1 pushes the same direction as rotenone/MPTP suppression of pro-survival signalling",
+        "Names the protective direction (AKT activation) or otherwise states what would be needed instead",
+        "Does not suggest capivasertib merely needs more supporting evidence to proceed"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "explain-etanercept-skeptic",
+      "prompt": "I need to explain to our neurologist collaborator why etanercept keeps coming out near the top of our parkinsons list. she's skeptical of anything that came out of a computational pipeline so i need the actual mechanistic argument plus whatever the weak points are",
+      "expected_output": "TNF inhibition rationale with toxin/pathway evidence and real numbers, plus the blood-brain-barrier weakness (biologic modality, IgG <1% of serum in CSF) surfaced honestly. Ideally offers an evidence graph.",
+      "files": [],
+      "assertions": [
+        "Gives the TNF-inhibition mechanistic rationale for PD",
+        "Surfaces the blood-brain-barrier limitation of etanercept as a large molecule/biologic",
+        "Cites concrete evidence numbers (pathway q-value, toxin count, or trial counts)",
+        "Names which environmental toxins implicate TNF",
+        "Provides or offers an evidence graph / diagram",
+        "States that the database contains no PD efficacy data for this drug"
+      ]
+    }
+  ]
+}

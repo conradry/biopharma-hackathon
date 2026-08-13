@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <key id="n_best_pathway_qvalue" for="node" attr.name="best_pathway_qvalue" attr.type="double"/>
+  <key id="n_fold_enrichment" for="node" attr.name="fold_enrichment" attr.type="double"/>
+  <key id="n_kind" for="node" attr.name="kind" attr.type="string"/>
+  <key id="n_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="n_modality" for="node" attr.name="modality" attr.type="string"/>
+  <key id="n_n_disease_readout_trials" for="node" attr.name="n_disease_readout_trials" attr.type="int"/>
+  <key id="n_n_toxins" for="node" attr.name="n_toxins" attr.type="int"/>
+  <key id="n_n_trials" for="node" attr.name="n_trials" attr.type="int"/>
+  <key id="n_pathway_size" for="node" attr.name="pathway_size" attr.type="int"/>
+  <key id="n_priority_score" for="node" attr.name="priority_score" attr.type="double"/>
+  <key id="n_qvalue" for="node" attr.name="qvalue" attr.type="double"/>
+  <key id="n_rank" for="node" attr.name="rank" attr.type="int"/>
+  <key id="n_toxin_support" for="node" attr.name="toxin_support" attr.type="double"/>
+  <key id="n_verdict" for="node" attr.name="verdict" attr.type="string"/>
+  <key id="e_direction" for="edge" attr.name="direction" attr.type="string"/>
+  <key id="e_direction_confidence" for="edge" attr.name="direction_confidence" attr.type="string"/>
+  <key id="e_kind" for="edge" attr.name="kind" attr.type="string"/>
+  <key id="e_label" for="edge" attr.name="label" attr.type="string"/>
+  <key id="e_qvalue" for="edge" attr.name="qvalue" attr.type="double"/>
+  <graph id="G" edgedefault="directed">
+    <node id="disease:Parkinson disease">
+      <data key="n_kind">disease</data>
+      <data key="n_label">Parkinson disease</data>
+    </node>
+    <node id="drug:Etanercept">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Etanercept</data>
+      <data key="n_modality">biologic</data>
+      <data key="n_n_disease_readout_trials">78</data>
+      <data key="n_n_trials">354</data>
+      <data key="n_priority_score">0.767</data>
+      <data key="n_rank">1</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="target:TNF">
+      <data key="n_best_pathway_qvalue">0.006420344193912999</data>
+      <data key="n_kind">target</data>
+      <data key="n_label">TNF</data>
+      <data key="n_n_toxins">4</data>
+      <data key="n_toxin_support">0.5374</data>
+    </node>
+    <node id="toxin:rotenone">
+      <data key="n_kind">toxin</data>
+      <data key="n_label">rotenone</data>
+    </node>
+    <node id="toxin:trichloroethylene">
+      <data key="n_kind">toxin</data>
+      <data key="n_label">trichloroethylene</data>
+    </node>
+    <node id="toxin:paraquat">
+      <data key="n_kind">toxin</data>
+      <data key="n_label">paraquat</data>
+    </node>
+    <node id="toxin:mptp">
+      <data key="n_kind">toxin</data>
+      <data key="n_label">mptp</data>
+    </node>
+    <node id="drug:Rasagiline">
+      <data key="n_kind">anchor_drug</data>
+      <data key="n_label">Rasagiline</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">3</data>
+      <data key="n_n_trials">51</data>
+      <data key="n_priority_score">0.7253</data>
+      <data key="n_rank">0</data>
+      <data key="n_verdict">established_pd_therapy</data>
+    </node>
+    <node id="target:MAOB">
+      <data key="n_best_pathway_qvalue">0.006420344193912999</data>
+      <data key="n_kind">target</data>
+      <data key="n_label">MAOB</data>
+      <data key="n_n_toxins">1</data>
+      <data key="n_toxin_support">0.0935</data>
+    </node>
+    <node id="drug:Safinamide">
+      <data key="n_kind">anchor_drug</data>
+      <data key="n_label">Safinamide</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">0</data>
+      <data key="n_n_trials">25</data>
+      <data key="n_priority_score">0.7106</data>
+      <data key="n_rank">0</data>
+      <data key="n_verdict">established_pd_therapy</data>
+    </node>
+    <node id="drug:Adalimumab">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Adalimumab</data>
+      <data key="n_modality">biologic</data>
+      <data key="n_n_disease_readout_trials">104</data>
+      <data key="n_n_trials">469</data>
+      <data key="n_priority_score">0.6779</data>
+      <data key="n_rank">2</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Methylphenidate">
+      <data key="n_kind">anchor_drug</data>
+      <data key="n_label">Methylphenidate</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">6</data>
+      <data key="n_n_trials">389</data>
+      <data key="n_priority_score">0.6773</data>
+      <data key="n_rank">0</data>
+      <data key="n_verdict">established_pd_therapy</data>
+    </node>
+    <node id="target:SLC6A3">
+      <data key="n_best_pathway_qvalue">0.07114187315128005</data>
+      <data key="n_kind">target</data>
+      <data key="n_label">SLC6A3</data>
+      <data key="n_n_toxins">1</data>
+      <data key="n_toxin_support">0.1791</data>
+    </node>
+    <node id="drug:Infliximab">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Infliximab</data>
+      <data key="n_modality">biologic</data>
+      <data key="n_n_disease_readout_trials">59</data>
+      <data key="n_n_trials">359</data>
+      <data key="n_priority_score">0.6698</data>
+      <data key="n_rank">3</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Tranylcypromine">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Tranylcypromine</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">0</data>
+      <data key="n_n_trials">14</data>
+      <data key="n_priority_score">0.6622</data>
+      <data key="n_rank">4</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="target:MAOA">
+      <data key="n_best_pathway_qvalue">0.006420344193912999</data>
+      <data key="n_kind">target</data>
+      <data key="n_label">MAOA</data>
+      <data key="n_n_toxins">1</data>
+      <data key="n_toxin_support">0.0935</data>
+    </node>
+    <node id="drug:Certolizumab">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Certolizumab</data>
+      <data key="n_modality">biologic</data>
+      <data key="n_n_disease_readout_trials">20</data>
+      <data key="n_n_trials">100</data>
+      <data key="n_priority_score">0.6529</data>
+      <data key="n_rank">5</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Golimumab">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Golimumab</data>
+      <data key="n_modality">biologic</data>
+      <data key="n_n_disease_readout_trials">19</data>
+      <data key="n_n_trials">103</data>
+      <data key="n_priority_score">0.6523</data>
+      <data key="n_rank">6</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Moclobemide">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Moclobemide</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">0</data>
+      <data key="n_n_trials">4</data>
+      <data key="n_priority_score">0.6345</data>
+      <data key="n_rank">7</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Isocarboxazid">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Isocarboxazid</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">0</data>
+      <data key="n_n_trials">1</data>
+      <data key="n_priority_score">0.6315</data>
+      <data key="n_rank">8</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Phenelzine">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Phenelzine</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">1</data>
+      <data key="n_n_trials">8</data>
+      <data key="n_priority_score">0.6292</data>
+      <data key="n_rank">9</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="drug:Bupropion">
+      <data key="n_kind">drug</data>
+      <data key="n_label">Bupropion</data>
+      <data key="n_modality">small_molecule</data>
+      <data key="n_n_disease_readout_trials">10</data>
+      <data key="n_n_trials">345</data>
+      <data key="n_priority_score">0.6254</data>
+      <data key="n_rank">10</data>
+      <data key="n_verdict">candidate</data>
+    </node>
+    <node id="pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB">
+      <data key="n_fold_enrichment">120.5444</data>
+      <data key="n_kind">pathway</data>
+      <data key="n_label">Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB</data>
+      <data key="n_pathway_size">2</data>
+      <data key="n_qvalue">0.006420344193912999</data>
+    </node>
+    <node id="pathway:Interleukin-4 and Interleukin-13 signaling">
+      <data key="n_fold_enrichment">7.8131</data>
+      <data key="n_kind">pathway</data>
+      <data key="n_label">Interleukin-4 and Interleukin-13 signaling</data>
+      <data key="n_pathway_size">108</data>
+      <data key="n_qvalue">0.006420344193912999</data>
+    </node>
+    <edge id="e0" source="drug:Etanercept" target="target:TNF">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e1" source="toxin:rotenone" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e2" source="toxin:trichloroethylene" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e3" source="toxin:paraquat" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e4" source="toxin:mptp" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e5" source="drug:Rasagiline" target="target:MAOB">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">established</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e6" source="toxin:mptp" target="target:MAOB">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e7" source="drug:Safinamide" target="target:MAOB">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">established</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e8" source="toxin:mptp" target="target:MAOB">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e9" source="drug:Adalimumab" target="target:TNF">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e10" source="toxin:rotenone" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e11" source="toxin:trichloroethylene" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e12" source="toxin:paraquat" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e13" source="toxin:mptp" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e14" source="drug:Methylphenidate" target="target:SLC6A3">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e15" source="toxin:mptp" target="target:SLC6A3">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e16" source="drug:Infliximab" target="target:TNF">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e17" source="toxin:rotenone" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e18" source="toxin:trichloroethylene" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e19" source="toxin:paraquat" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e20" source="toxin:mptp" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e21" source="drug:Tranylcypromine" target="target:MAOA">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e22" source="toxin:mptp" target="target:MAOA">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e23" source="drug:Tranylcypromine" target="target:MAOB">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">established</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e24" source="toxin:mptp" target="target:MAOB">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e25" source="drug:Certolizumab" target="target:TNF">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e26" source="toxin:rotenone" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e27" source="toxin:trichloroethylene" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e28" source="toxin:paraquat" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e29" source="toxin:mptp" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e30" source="drug:Golimumab" target="target:TNF">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e31" source="toxin:rotenone" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e32" source="toxin:trichloroethylene" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e33" source="toxin:paraquat" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e34" source="toxin:mptp" target="target:TNF">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e35" source="drug:Moclobemide" target="target:MAOA">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e36" source="toxin:mptp" target="target:MAOA">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e37" source="drug:Isocarboxazid" target="target:MAOA">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e38" source="toxin:mptp" target="target:MAOA">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e39" source="drug:Isocarboxazid" target="target:MAOB">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">established</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e40" source="toxin:mptp" target="target:MAOB">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e41" source="drug:Phenelzine" target="target:MAOA">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e42" source="toxin:mptp" target="target:MAOA">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e43" source="drug:Phenelzine" target="target:MAOB">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">established</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e44" source="toxin:mptp" target="target:MAOB">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e45" source="drug:Bupropion" target="target:SLC6A3">
+      <data key="e_direction">protective</data>
+      <data key="e_direction_confidence">plausible</data>
+      <data key="e_kind">acts_on</data>
+      <data key="e_label">inhibitor</data>
+    </edge>
+    <edge id="e46" source="toxin:mptp" target="target:SLC6A3">
+      <data key="e_kind">implicates</data>
+      <data key="e_label">implicates</data>
+    </edge>
+    <edge id="e47" source="target:MAOA" target="pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB">
+      <data key="e_kind">member_of</data>
+      <data key="e_label">in pathway</data>
+    </edge>
+    <edge id="e48" source="pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB" target="disease:Parkinson disease">
+      <data key="e_kind">enriched_in</data>
+      <data key="e_label">q=0.0064</data>
+      <data key="e_qvalue">0.006420344193912999</data>
+    </edge>
+    <edge id="e49" source="target:MAOA" target="pathway:Interleukin-4 and Interleukin-13 signaling">
+      <data key="e_kind">member_of</data>
+      <data key="e_label">in pathway</data>
+    </edge>
+    <edge id="e50" source="pathway:Interleukin-4 and Interleukin-13 signaling" target="disease:Parkinson disease">
+      <data key="e_kind">enriched_in</data>
+      <data key="e_label">q=0.0064</data>
+      <data key="e_qvalue">0.006420344193912999</data>
+    </edge>
+    <edge id="e51" source="target:MAOB" target="pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB">
+      <data key="e_kind">member_of</data>
+      <data key="e_label">in pathway</data>
+    </edge>
+    <edge id="e52" source="pathway:Biogenic amines are oxidatively deaminated to aldehydes by MAOA and MAOB" target="disease:Parkinson disease">
+      <data key="e_kind">enriched_in</data>
+      <data key="e_label">q=0.0064</data>
+      <data key="e_qvalue">0.006420344193912999</data>
+    </edge>
+    <edge id="e53" source="target:TNF" target="pathway:Interleukin-4 and Interleukin-13 signaling">
+      <data key="e_kind">member_of</data>
+      <data key="e_label">in pathway</data>
+    </edge>
+    <edge id="e54" source="pathway:Interleukin-4 and Interleukin-13 signaling" target="disease:Parkinson disease">
+      <data key="e_kind">enriched_in</data>
+      <data key="e_label">q=0.0064</data>
+      <data key="e_qvalue">0.006420344193912999</data>
+    </edge>
+  </graph>
+</graphml>
