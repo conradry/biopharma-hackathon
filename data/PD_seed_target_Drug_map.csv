@@ -1,0 +1,120 @@
+Drug,Targets
+Acetophenazine,DRD2
+Adalimumab,TNF
+Amineptine,DRD1; DRD2
+Amisulpride,DRD2
+Amoxapine,DRD1; DRD2
+Amphetamine,SLC6A3
+Apomorphine,DRD2
+Aripiprazole,DRD2
+Armodafinil,SLC6A3
+Asenapine,DRD2
+Ataluren,RPL14; RPL23A; RPL6; RPS8
+Benperidol,DRD2
+Benzphetamine,SLC18A2
+Benzquinamide,DRD2
+Blonanserin,DRD2
+Brexpiprazole,DRD2
+Bromocriptine,DRD2
+Bromperidol,DRD2
+Bupropion,SLC6A3
+Cabergoline,DRD2
+Carbidopa,DDC
+Cariprazine,DRD2
+Carphenazine,DRD2
+Certolizumab,TNF
+Chlorpromazine,DRD2
+Chlorprothixene,DRD2
+Clozapine,DRD2
+Deserpidine,SLC18A2
+Deutetrabenazine,SLC18A2
+Dexmethylphenidate,SLC6A3
+Dextroamphetamine,SLC18A2; SLC6A3
+Diethylpropion,SLC6A3
+Domperidone,DRD2
+Droperidol,DRD2
+Ergoloid,DRD1; DRD2
+Etanercept,TNF
+Fenoldopam,DRD1
+Fibrinolysin,FGB
+Fluphenazine,DRD2
+Fluspirilene,DRD2
+Fomepizole,ADH1C
+Foscarbidopa,DDC
+Golimumab,TNF
+Haloperidol,DRD2
+Iloperidone,DRD2
+Infliximab,TNF
+Insulin,INSR
+Iproniazid,MAOA; MAOB
+Isocarboxazid,MAOA; MAOB
+Levomepromazine,DRD2
+Lisdexamfetamine,SLC18A2; SLC6A3
+Loxapine,DRD2
+Lumateperone,DRD2
+Lurasidone,DRD2
+Masoprocol,IGF1R
+Mazindol,SLC6A3
+Mebanazine,MAOA; MAOB
+Mecasermin,IGF1R
+Mesoridazine,DRD2
+Methamphetamine,SLC6A3
+Methylergonovine,DRD1
+Methylphenidate,SLC6A3
+Metoclopramide,DRD2
+Metyrosine,TH
+Minaprine,DRD1; DRD2; MAOA
+Moclobemide,MAOA
+Modafinil,SLC6A3
+Molindone,DRD2
+Nialamide,MAOA; MAOB
+Nitrefazole,ADH1C
+Nomifensine,SLC6A3
+Olanzapine,DRD2
+Paliperidone,DRD2
+Pargyline,MAOA; MAOB
+Pergolide,DRD1; DRD2
+Perphenazine,DRD2
+Phendimetrazine,SLC6A3
+Phenelzine,MAOA; MAOB
+Phenmetrazine,SLC6A3
+Phenoxypropazine,MAOA; MAOB
+Pimozide,DRD1; DRD2
+Piperacetazine,DRD2
+Pramipexole,DRD2
+Prochlorperazine,DRD2
+Promazine,DRD2
+Propanidid,BCHE
+Proxibarbal,MAOA
+Pyrovalerone,SLC6A3
+Quetiapine,DRD2
+Quinagolide,DRD2
+Rasagiline,MAOB
+Remoxipride,DRD2
+Rescinnamine,SLC18A2
+Reserpine,SLC18A2
+Risperidone,DRD2
+Rivastigmine,BCHE
+Ropinirole,DRD2
+Rotigotine,DRD2
+Safinamide,MAOB
+Selegiline,MAOB
+Serdexmethylphenidate,SLC6A3
+Sertindole,DRD2
+Sibutramine,SLC6A3
+Siltuximab,IL6
+Sulpiride,DRD2
+Tacrine,BCHE
+Teprotumumab,IGF1R
+Tetrabenazine,SLC18A2
+Thiethylperazine,DRD2
+Thioridazine,DRD2
+Thiothixene,DRD2
+Toloxatone,MAOA
+Tranylcypromine,MAOA; MAOB
+Trifluoperazine,DRD2
+Triflupromazine,DRD2
+Trimipramine,DRD2
+Valbenazine,SLC18A2
+Veralipride,DRD2
+Ziprasidone,DRD2

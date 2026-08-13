@@ -39,12 +39,20 @@ def parse_table(text, ncol):
         out.append(p)
     return out
 
+ALIASES={"GBA":"GBA1","PARK2":"PRKN","PARK7":"PARK7","ADRB":"ADRB1"}  # common symbol drift
 def map_genes(genes):
+    genes=[ALIASES.get(g,g) for g in genes]
     inlist=",".join("'%s'"%g.replace("'","''") for g in genes)
-    txt=sql("proteins", f"SELECT accession, gene_name FROM uniprot_v.proteins "
-        f"WHERE organism='Homo sapiens' AND gene_name IN ({inlist}) ORDER BY gene_name")
-    acc={}
-    for p in parse_table(txt,2): acc[p[0]]=p[1]   # accession -> gene
+    base=(f"SELECT accession, gene_name FROM uniprot_v.proteins "
+          f"WHERE organism='Homo sapiens' AND gene_name IN ({inlist}) ORDER BY gene_name")
+    acc={}; off=0
+    while True:  # proteins SQL previews large results -> page at 25
+        txt=sql("proteins", base+f" LIMIT 25 OFFSET {off}")
+        rows=parse_table(txt,2)
+        if not rows: break
+        for p in rows: acc[p[0]]=p[1]   # accession -> gene
+        off+=25
+        if len(rows)<25: break
     return acc
 
 def derive(acc, mode):
