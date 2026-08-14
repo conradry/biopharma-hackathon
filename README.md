@@ -1,5 +1,102 @@
 # biopharma-hackathon
 
+## About
+
+Our drug repurposing approach pinpoints candidate Parkinson's therapeutics by correlating
+epidemiological toxin data with overlapping molecular pathways shared by both toxins and known
+disease treatments.
+
+```mermaid
+flowchart LR
+  T["Epidemiological<br/>toxin data"]:::toxin --> P["Shared molecular<br/>pathways"]:::pathway
+  Rx["Known PD<br/>treatments"]:::drug --> P
+  P --> G["Overlapping<br/>gene targets"]:::target
+  G --> A["Approved drugs<br/>acting on them"]:::drug
+  A --> C["Candidate PD<br/>therapeutics"]:::disease
+  classDef toxin fill:#ffebe9,stroke:#cf222e,color:#5a0f14;
+  classDef pathway fill:#dafbe1,stroke:#1a7f37,color:#0a3622;
+  classDef target fill:#fff8c5,stroke:#9a6700,color:#4d2d00;
+  classDef drug fill:#ddf4ff,stroke:#0969da,color:#0a3069;
+  classDef disease fill:#fbefff,stroke:#8250df,color:#3b1a5c;
+```
+
+### Top repurposing candidates
+
+The ranked shortlist and the evidence behind it — toxins (red) implicate targets (yellow) that
+approved drugs (blue) act on, converging on enriched pathways (green) of Parkinson's disease.
+The three approved PD drugs (dashed) are held out and land at ranks 2–4, validating the ranking.
+
+```mermaid
+flowchart LR
+  n0[["Parkinson disease"]]
+  n1["1. Etanercept"]
+  n2(["TNF"])
+  n3{{"rotenone"}}
+  n4{{"trichloroethylene"}}
+  n5{{"paraquat"}}
+  n6{{"mptp"}}
+  n7["Rasagiline (approved for PD)"]
+  n8(["MAOB"])
+  n9["Safinamide (approved for PD)"]
+  n10["2. Adalimumab"]
+  n11["Methylphenidate (approved for PD)"]
+  n12(["SLC6A3"])
+  n13["3. Infliximab"]
+  n14["4. Tranylcypromine"]
+  n15(["MAOA"])
+  n16["5. Certolizumab"]
+  n17["6. Golimumab"]
+  n18["7. Moclobemide"]
+  n19["8. Isocarboxazid"]
+  n20["9. Phenelzine"]
+  n21["10. Bupropion"]
+  n22["Biogenic amines oxidatively deaminated by MAOA and MAOB"]
+  n23["Interleukin-4 and Interleukin-13 signaling"]
+  n1 -->|inhibitor| n2
+  n3 -->|implicates| n2
+  n4 -->|implicates| n2
+  n5 -->|implicates| n2
+  n6 -->|implicates| n2
+  n7 -->|inhibitor| n8
+  n9 -->|inhibitor| n8
+  n10 -->|inhibitor| n2
+  n11 -->|inhibitor| n12
+  n13 -->|inhibitor| n2
+  n14 -->|inhibitor| n15
+  n14 -->|inhibitor| n8
+  n16 -->|inhibitor| n2
+  n17 -->|inhibitor| n2
+  n18 -->|inhibitor| n15
+  n19 -->|inhibitor| n15
+  n19 -->|inhibitor| n8
+  n20 -->|inhibitor| n15
+  n20 -->|inhibitor| n8
+  n21 -->|inhibitor| n12
+  n6 -->|implicates| n8
+  n6 -->|implicates| n12
+  n6 -->|implicates| n15
+  n15 -->|in pathway| n22
+  n8 -->|in pathway| n22
+  n2 -->|in pathway| n23
+  n22 -->|q=0.006| n0
+  n23 -->|q=0.006| n0
+  classDef drug fill:#ddf4ff,stroke:#0969da,color:#0a3069;
+  classDef anchor fill:#eeeeee,stroke:#6e7781,color:#24292f,stroke-dasharray:4 3;
+  classDef target fill:#fff8c5,stroke:#9a6700,color:#4d2d00;
+  classDef toxin fill:#ffebe9,stroke:#cf222e,color:#5a0f14;
+  classDef pathway fill:#dafbe1,stroke:#1a7f37,color:#0a3622;
+  classDef disease fill:#fbefff,stroke:#8250df,color:#3b1a5c;
+  class n1,n10,n13,n14,n16,n17,n18,n19,n20,n21 drug;
+  class n7,n9,n11 anchor;
+  class n2,n8,n12,n15 target;
+  class n3,n4,n5,n6 toxin;
+  class n22,n23 pathway;
+  class n0 disease;
+```
+
+More result graphs — biomarker readouts and pathway convergence — and the full ranking are in
+[`data/`](data/) (see [`data/README.md`](data/README.md)).
+
 ## Setup
 
 Requires [uv](https://docs.astral.sh/uv/).
