@@ -1,4 +1,4 @@
-# biopharma-hackathon
+# Drug Repurposing for Parkinson'd Disease
 
 ## About
 
