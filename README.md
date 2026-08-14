@@ -1,4 +1,4 @@
-# Drug Repurposing for Parkinson'd Disease
+# Drug Repurposing for Parkinson's Disease
 
 ## About
 
